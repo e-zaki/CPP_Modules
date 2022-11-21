@@ -4,7 +4,7 @@
 
 class PhoneBook {
 	public:
-		Contact contacts[8];
+		Contact Contact[8];
 };
 
 #endif

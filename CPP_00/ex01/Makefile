@@ -1,7 +1,7 @@
-NAME=
-SRC=megaphone.cpp
+NAME=PhoneBook
+SRC=PhoneBook.cpp main.cpp
 CC=g++
-FLAGS=-Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
