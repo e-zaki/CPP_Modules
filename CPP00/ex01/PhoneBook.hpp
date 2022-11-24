@@ -1,5 +1,6 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
+
 # include "Contact.hpp"
 
 class PhoneBook
@@ -13,8 +14,14 @@ public:
 
 
 private:
-	int		counter;
-	Contact Contact[8];
+	int			counter;
+	int			PhoneBookSize;
+	Contact 	contact[8];
+	std::string	InputBuff[5];
+
+	void	GetInputs(void);
+	int		NoEmptyFields();
+
 };
 
 #endif

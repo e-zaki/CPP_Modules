@@ -7,20 +7,18 @@ int main()
 
     while (1)
     {
-        std::cout << "Enter Command: ";
-        std::cin >> str;
-        if (str.compare("EXIT") == 0)
+        std::cout << "Enter one of Commands [ ADD / SEARCH / EXIT ]:\n---> ";
+        std::getline(std::cin, str);
+        if (str == "EXIT")
             break ;
-        else if (str.compare("ADD") == 0) {
-            std::cout << "Execute ADD()" << std::endl;
+        else if (str == "ADD") {
             phonebook.ADD();
         }
-        else if (str.compare("SEARCH") == 0) {
-            std::cout << "Execute SEARCH()" << std::endl;
+        else if (str == "SEARCH") {
             phonebook.SEARCH();
         }
         else
-            std::cout << "Enter a valid command :)" << std::endl;
+            std::cout << "Enter a valid command :/" << std::endl;
     }
     return (0);
 }
