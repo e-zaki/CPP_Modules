@@ -1,58 +1,13 @@
 #include "PhoneBook.hpp"
 
-# define PHB_SIZE 8
-
 PhoneBook::PhoneBook(void) {
 	this->counter = 0;
-	this->PhoneBookSize = 0;
+	this->EntriesCount = 0;
 }
 
 PhoneBook::~PhoneBook(void) {
 	std::cout << "Destructor called" << std::endl;
 	return ;
-}
-
-void	PhoneBook::GetInputs(void)
-{
-	std::cout << "\nfirst name: ";
-	if (!std::cin.eof())
-	std::getline(std::cin, this->InputBuff[0]);
-
-	std::cout << "last name: ";
-	std::getline(std::cin, this->InputBuff[1]);
-
-	std::cout << "nickname: ";
-	std::getline(std::cin, this->InputBuff[2]);
-
-	std::cout << "phone number: ";
-	std::getline(std::cin, this->InputBuff[3]);
-
-	std::cout << "darkest secret: ";
-	std::getline(std::cin, this->InputBuff[4]);
-}
-
-int		PhoneBook::NoEmptyFields()
-{
-	if (this->InputBuff[0] == "")
-		return (0);
-	else if (this->InputBuff[1] == "")
-		return (0);
-	else if (this->InputBuff[2] == "")
-		return (0);
-	else if (this->InputBuff[3] == "")
-		return (0);
-	else if (this->InputBuff[4] == "")
-		return (0);
-	return (1);
-}
-
-void	Contact::Assign(std::string InputBuff[5])
-{
-		this->firstname = InputBuff[0];
-		this->lastname = InputBuff[1];
-		this->nickname = InputBuff[2];
-		this->phone_nbr = InputBuff[3];
-		this->secret = InputBuff[4];
 }
 
 // PhoneBook Methods
@@ -62,25 +17,45 @@ void	PhoneBook::ADD(void) {
 	int				idx;
 
 	idx = this->counter;
-	if (idx == PHB_SIZE)
+	if (idx == PhoneBookSize)
 		this->counter = 0;
 
-	this->GetInputs();
+	// Extract Contact infos from the user
+	this->contact[this->counter].getInputs();
 
-	if (this->NoEmptyFields())
-	{
-		this->contact[this->counter].Assign(this->InputBuff);
+	this->counter++;
+	if (this->EntriesCount < PhoneBookSize)
+		this->EntriesCount++;
 
-		this->counter++;
-		if (this->PhoneBookSize < PHB_SIZE)
-			this->PhoneBookSize++;
-
-		std::cout << "\nContact added Successfully :)\n\n";
-	}
-	else
-		std::cout << "\nEmpty field detected, Try Again!\n\n";
+	std::cout << "\n\033[0;32mContact added Successfully :)\033[0;37m\n\n";
 
 }
+
+void	PhoneBook::SEARCH() {
+	int	idx;
+
+	if (this->EntriesCount == 0){
+		std::cout << "\n\033[0;36mPhoneBook Is Empty :/\033[0;37m\n\n";
+		return ;
+	}
+	std::cout << "\n   --------------------------------------------------" << std::endl;
+	std::cout << "   |  index  | first name |  last name |  nickname  |\n";
+	std::cout << "   --------------------------------------------------" << std::endl;
+
+	for	(int i = 0; i < this->EntriesCount; i++)
+		this->contact[i].DisplayRow(i);
+	
+	idx = getIndex(this->EntriesCount);
+	std::cout << std::endl;
+	this->contact[idx].DisplayFields();
+}
+
+void	PhoneBook::EXIT() {
+	std::cout << "\033[0;36m<<  Exit Program  >>\033[0;37m\n\n";
+}
+
+
+// Contact Methods
 
 void	Contact::RightAllign(std::string str)
 {
@@ -90,6 +65,7 @@ void	Contact::RightAllign(std::string str)
 		std::cout << str.substr(0, 9) << '.';
 }
 
+// Displays Contact infos line by line
 void	Contact::DisplayFields(void)
 {
 	std::cout << std::left << std::setfill(' ') << std::setw(20)
@@ -122,27 +98,34 @@ void	Contact::DisplayRow(int idx)
 
 }
 
-void	PhoneBook::SEARCH() {
-	std::string		str;
-
-	std::cout << "\n\n   |  index  | first name |  last name |  nickname  |\n";
-	std::cout << "   --------------------------------------------------" << std::endl;
-	for	(int i = 0; i < this->PhoneBookSize; i++)
-		this->contact[i].DisplayRow(i);
-	
-	std::cout << std::endl;
-	std::cout << "Enter Index of Desired entry : ";
-	std::getline(std::cin, str);
-	std::cout << std::endl;
-
-	if (str == "" || !isdigit(str[0]) || str.length() > 1)
-		std::cout << "Invalid Entry\n\n";
-	else if ((str[0] - 48) > this->PhoneBookSize)
-		std::cout << "Entry is out of range\n\n";
-	else
-		this->contact[str[0] - 48].DisplayFields();
+void	Contact::getInputs()
+{
+		this->firstname = getName("first name: ");
+		this->lastname  = getName("last name: ");
+		this->nickname = getName("nickname: ");
+		this->phone_nbr = getPhoneNum("Phone number: ");
+		this->secret = getName("darkest secret: ");
 }
 
-void	PhoneBook::EXIT() {
+int	getIndex(int nbr_contacts) {
+	std::string	input;
 
+	std::cout << std::endl;
+	std::cout << "Enter Index of Desired entry : ";
+	while (true)
+	{
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cout << "\n\033[0;31mEOF :/\033[0;37m\n";
+			exit(1);
+		}
+		if (input == "" || !isdigit(input[0]) || input.length() > 1)
+			std::cout << "\033[0;31mInvalid Entry\033[0;37m\nTry Again: ";
+		else if ((input[0] - 48) >= nbr_contacts)
+			std::cout << "\033[0;31mIndex is out of range\033[0;37m\nTry Again: ";
+		else
+			return (input[0] - 48);
+	}
+	
 }

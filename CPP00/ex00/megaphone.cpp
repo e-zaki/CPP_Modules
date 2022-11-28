@@ -5,7 +5,9 @@
 int main(int argc, char **argv)
 {
 	std::string	str;
-	int		i, j;
+	int		i;
+	int		j;
+	char	ch;
 
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
@@ -16,9 +18,8 @@ int main(int argc, char **argv)
 		j = -1;
 		while (str[++j])
 		{
-			if (str[j] >= 'a' && str[j] <= 'z')
-				str[j] -= 32;
-			std::cout << str[j];
+			ch = toupper(str[j]);
+			std::cout << ch;
 		}
 	}	
 	std::cout << '\n';

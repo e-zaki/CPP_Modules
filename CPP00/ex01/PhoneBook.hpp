@@ -2,6 +2,7 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
+# define PhoneBookSize 8
 
 class PhoneBook
 {
@@ -14,14 +15,9 @@ public:
 
 
 private:
-	int			counter;
-	int			PhoneBookSize;
-	Contact 	contact[8];
-	std::string	InputBuff[5];
-
-	void	GetInputs(void);
-	int		NoEmptyFields();
-
+	int			counter;					// counter: the index where to add new contact
+	int			EntriesCount;				// available range of display 
+	Contact 	contact[PhoneBookSize];
 };
 
 #endif
