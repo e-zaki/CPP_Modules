@@ -1,11 +1,12 @@
-NAME=megaphone
-SRC=megaphone.cpp
+NAME=test
+SRC=Account.cpp test.cpp
+HEADER=Account.hpp
 CC=g++
 FLAGS=-Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(HEADER)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
@@ -15,4 +16,4 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all clean re
+.PHONY: all clean fclean re
