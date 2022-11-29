@@ -1,11 +1,13 @@
 NAME=PhoneBook
-SRC=PhoneBook.cpp main.cpp utils.cpp
+SRC=PhoneBook.cpp main.cpp utils.cpp Contact.cpp
+HEADERS=PhoneBook.hpp Contact.hpp
 CC=g++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
+
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(HEADERS)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
