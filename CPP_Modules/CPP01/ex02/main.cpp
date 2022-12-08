@@ -8,24 +8,23 @@ int main( void )
 
 	std::string	&stringREF = str;
 
-	// memory address of str
-	std::cout << &str << std::endl;
+	std::cout << "memory address of str:\n"
+			  << &str << std::endl;
 
-	// memory address held by stringPTR
-	std::cout << &stringPTR << std::endl;
+	std::cout << "\nmemory address held by stringPTR:\n"
+			  << &stringPTR << std::endl;
 
-	// memory address held by stringREF
-	std::cout << &stringREF << std::endl;
+	std::cout << "\nmemory address held by stringREF:\n"
+			  << &stringREF << std::endl;
 
-	// value of str
-	std::cout << str << std::endl;
+	std::cout << "\nvalue of str:\n"
+			  << str << std::endl;
 
-	// value pointed by stringPTR
-	std::cout << *stringPTR << std::endl;
+	std::cout << "\nvalue pointed by stringPTR:\n"
+			  << *stringPTR << std::endl;
 
-	// value pointed by stringREF
-	std::cout << stringREF << std::endl;
-
+	std::cout << "\nvalue pointed by stringREF:\n"
+			  << stringREF << std::endl;
 
 	return 0;
 }

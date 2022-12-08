@@ -2,7 +2,7 @@
 
 Zombie* zombieHorde( int N, std::string name ) {
 
-	if (N <= 0) {
+	if (N  < 0) {
 		std::cout << "\033[0;31m"
 				  << "N must be positive :p"
 				  << "\033[0;37m\n\n";
@@ -11,9 +11,8 @@ Zombie* zombieHorde( int N, std::string name ) {
 
 	Zombie	*horde = new Zombie[N];
 
-	for (int i = 0; i < N; i++) {
+	for (int i = 0; i < N ; i++) {
 		horde[i].setName(name);
-		horde[i].announce();
 	}
 
 	return horde;

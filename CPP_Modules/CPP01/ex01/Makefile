@@ -1,7 +1,7 @@
 NAME=Zombie
 SRC=Zombie.cpp main.cpp zombieHorde.cpp
 HEADER=Zombie.hpp
-CC=g++
+CC=c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)

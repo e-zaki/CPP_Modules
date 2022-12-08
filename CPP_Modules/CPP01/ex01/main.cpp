@@ -1,25 +1,27 @@
 #include "Zombie.hpp"
 
-int func(void)
+void func(void)
 {
-	Zombie	*horde = zombieHorde(7, "Bar Brothers");
+	// N : size of zombie's horde
 
-	std::cout << "[3] ";
-	horde[3].announce();
+	int N = 4;
 
-	std::cout << "[6] ";
-	horde[6].announce();
+	Zombie	*horde = zombieHorde(N, "Bar Brothers");
+
+	for (int i = 0; i < N && horde; i++) {
+		std::cout << "[" << i << "] ";
+		horde[i].announce();
+	}
 
 	delete[] horde;
 
-
-	return 0;
+	return ;
 }
 
 int main(void)
 {
 	func();
-	system("leaks Zombie");
+	// system("leaks Zombie");
 
 	return 0;
 }

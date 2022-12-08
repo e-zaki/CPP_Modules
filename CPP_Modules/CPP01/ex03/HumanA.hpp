@@ -8,10 +8,10 @@ class	HumanA {
 public:
 
 	HumanA(std::string name, Weapon &wA);
-	~HumanA();
+	// ~HumanA();
 
 	void	attack( void );
-
+	void	setWeapon(Weapon &w);
 
 private:
 	

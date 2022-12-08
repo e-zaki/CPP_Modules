@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 		j = -1;
 		while (str[++j])
 		{
-			ch = toupper(str[j]);
+			ch = std::toupper(str[j]);
 			std::cout << ch;
 		}
 	}	

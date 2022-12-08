@@ -1,8 +1,8 @@
-NAME=test
-SRC=Account.cpp test.cpp
-HEADER=Account.hpp
+NAME=main
+SRC=main.cpp
+HEADER=
 CC=c++
-FLAGS=-Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
@@ -12,7 +12,7 @@ $(NAME): $(SRC) $(HEADER)
 clean:
 	rm -rf $(NAME)
 
-fclean: clean
+fclean: clean;
 
 re: clean all
 

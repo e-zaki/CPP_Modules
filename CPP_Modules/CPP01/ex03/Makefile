@@ -1,11 +1,12 @@
 NAME=main
 SRC=main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-CC=g++
+HEADERS=HumanA.hpp HumanB.hpp Weapon.hpp
+CC=c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(HEADER)
+$(NAME): $(SRC) $(HEADERS)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
 clean:

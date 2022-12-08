@@ -1,6 +1,6 @@
 NAME=main
 SRC=main.cpp
-CC=g++
+CC=c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)

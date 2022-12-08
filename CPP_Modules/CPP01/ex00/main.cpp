@@ -1,5 +1,16 @@
 #include "Zombie.hpp"
 
+int	testLeaksFct() {
+
+	Zombie	*obj = newZombie("Leaked Zombie");
+
+	obj->announce();
+
+	delete	obj;
+
+	return 0;
+}
+
 int main()
 {
 	Zombie	*z1 = newZombie("Ohio");
@@ -12,12 +23,12 @@ int main()
 
 	z2.announce();
 
+	// testLeaksFct();
 
 	delete z1;
 
-	// std::string test = 0; 	// --> segfault
 
-	system("leaks Zombie");
+	// system("leaks Zombie");
 
 	return 0;
 }

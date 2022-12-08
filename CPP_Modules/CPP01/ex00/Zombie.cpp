@@ -7,7 +7,7 @@ Zombie::Zombie(std::string Zname) : _name(Zname) {
 
 Zombie::~Zombie() {
 
-	std::cout << _name << " destroyed" << std::endl;
+	std::cout << _name << " destroyed 🧟" << std::endl;
 
 	return ;
 }

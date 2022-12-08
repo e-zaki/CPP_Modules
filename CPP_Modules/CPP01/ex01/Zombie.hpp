@@ -22,6 +22,4 @@ private:
 
 Zombie* zombieHorde( int N, std::string name );
 
-void	distroyHorde( int N, Zombie *arr);
-
 #endif
