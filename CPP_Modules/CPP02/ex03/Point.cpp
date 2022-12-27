@@ -12,9 +12,6 @@ Point::Point( float a, float b ) : x( a ), y ( b ) {
 
 Point::Point( const Point &obj ) : x(obj.get_x_value()), y(obj.get_y_value())
 {
-	
-	this->operator=(obj);
-
 	return ;
 }
 
@@ -25,9 +22,9 @@ Point::~Point( void ) {
 
 Point&	Point::operator= ( const Point& pt) {
 
-	Point *p = new Point ( pt.x.toFloat(), pt.y.toFloat() );
+	(void) pt;
 
-	return *p;
+	return *this;
 }
 
 Fixed const	Point::get_x_value( void ) const {

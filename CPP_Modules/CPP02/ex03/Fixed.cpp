@@ -160,14 +160,20 @@ Fixed	&Fixed::max(Fixed& f1, Fixed& f2)
 
 Fixed	Fixed::operator+ (const Fixed& fixed)
 {
-	float f = this->toFloat() + fixed.toFloat();
+	Fixed obj;
 
-	return Fixed (f);
+	obj.setRawBits( this->getRawBits() + fixed.getRawBits() );
+	
+	return obj;
 }
 
 Fixed	Fixed::operator- (const Fixed& fixed)
 {
-	return Fixed( this->toFloat() - fixed.toFloat() );
+	Fixed obj;
+
+	obj.setRawBits( this->getRawBits() - fixed.getRawBits() );
+	
+	return obj;
 }
 
 Fixed	Fixed::operator* (const Fixed& fixed)

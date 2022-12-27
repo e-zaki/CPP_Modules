@@ -45,11 +45,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
   Fixed A2 = area (x1, y1, x, y, x3, y3);
 
   Fixed A3 = area (x1, y1, x2, y2, x, y);
-
-   std::cout << "A: " << A << std::endl;
-   std::cout << "A1: " << A1 << std::endl;
-   std::cout << "A2: " << A2 << std::endl;
-   std::cout << "A3: " << A3 << std::endl;
     
    return (A == A1 + A2 + A3);
 }

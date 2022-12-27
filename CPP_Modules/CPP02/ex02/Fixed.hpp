@@ -40,7 +40,6 @@ public:
 	Fixed	operator* (const Fixed& fixed);
 	Fixed	operator/ (const Fixed& fixed);
 
-
 private:
 
 	int					_FixedPtNum;

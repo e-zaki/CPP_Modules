@@ -1,4 +1,4 @@
-NAME=Point
+NAME=Fixed
 SRC=Fixed.cpp main.cpp Point.cpp bsp.cpp
 HEADER=Fixed.hpp Point.hpp
 CC=c++

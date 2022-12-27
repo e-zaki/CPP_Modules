@@ -11,5 +11,6 @@ int main( void )
     	std::cout << "Point is inside triangle\n";
 	else
 		std::cout <<"Point is outside triangle\n";
+
 	return 0;
 }

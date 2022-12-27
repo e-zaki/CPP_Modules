@@ -58,7 +58,7 @@ void	Fixed::setRawBits( int const raw ) {
 
 float	Fixed::toFloat( void ) const {
 
-	return ((float) _FixedPtNum / (f loat) (1 << _nbFracBits));
+	return ((float) _FixedPtNum / (float) (1 << _nbFracBits));
 }
 
 int		Fixed::toInt( void ) const {
@@ -184,6 +184,5 @@ Fixed	Fixed::operator/ (const Fixed& fixed)
 {
 	return Fixed( this->toFloat() / fixed.toFloat() );
 }
-
 
 

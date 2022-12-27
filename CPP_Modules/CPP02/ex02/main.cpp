@@ -13,8 +13,9 @@ int main( void ) {
 
 	std::cout << Fixed::max( a, b ) << std::endl;
 
-	Fixed  c(12);
-	Fixed  d(4);
-	std::cout << c / d << std::endl;
+	// Fixed  c(12);
+	// Fixed  d(3);
+	// std::cout << c / d << std::endl;
+
 	return 0;
 }
