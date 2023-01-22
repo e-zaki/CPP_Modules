@@ -12,6 +12,13 @@ int main()
 	std::cout << sp.longestSpan() << std::endl;
 	int arr[] = {1, 14, 55, 2, 7};
 	sp.addMultipleNbrs(arr, 5);
-	Span sp2 = sp;
+	// Span sp2 = sp;
+	
+	Span sp3(10100);
+	int *bigArr = new int[10100];
+	for (int i = 0; i < 10100; i++) {
+		bigArr[i] = i;
+	}
+	sp3.addMultipleNbrs(bigArr, 10100);
 	return 0;
 }

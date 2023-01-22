@@ -18,6 +18,7 @@ Span& Span::operator=( const Span& obj ) {
 		this->_N = obj._N;
 		this->myVector.clear();
 		std::copy(obj.myVector.begin(), obj.myVector.end(), this->myVector.begin());
+		std::cout << "hhhh" << std::endl;
 	}
 	return *this;
 }
