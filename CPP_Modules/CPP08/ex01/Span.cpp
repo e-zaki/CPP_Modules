@@ -18,7 +18,6 @@ Span& Span::operator=( const Span& obj ) {
 		this->_N = obj._N;
 		this->myVector.clear();
 		std::copy(obj.myVector.begin(), obj.myVector.end(), this->myVector.begin());
-		std::cout << "hhhh" << std::endl;
 	}
 	return *this;
 }
@@ -39,7 +38,7 @@ size_t	Span::shortestSpan( void ) {
 
 	std::sort(myVector.begin(), myVector.end());
 	
-	std::vector<int>::iterator it;
+	std::vector<int>::iterator it = myVector.begin();
 	size_t	d = *(it + 1) - *it;
 	for (it = myVector.begin() + 2; it != myVector.end(); ++it)
 	{

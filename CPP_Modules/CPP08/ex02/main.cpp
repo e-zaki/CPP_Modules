@@ -29,6 +29,51 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
+
 	std::stack<int> s(mstack);
+
+	std::cout << "content of stack mstack:" << std::endl;
+	while (!mstack.empty()) {
+		std::cout << mstack.top() << std::endl;
+		mstack.pop();
+	}
+	
+	std::cout << "content of stack s:" << std::endl;
+	while (!s.empty()) {
+		std::cout << s.top() << std::endl;
+		s.pop();
+	}
+
+	// replace MutantStack with std::list
+
+	std::cout << "\nWorking with std::list instead of Mutant Stack..\n";
+	std::list<int> mylist;
+
+	mylist.push_back(5);
+	mylist.push_back(17);
+	
+	std::cout << mylist.back() << std::endl;
+	
+	mylist.pop_back();
+	
+	std::cout << mylist.size() << std::endl;
+	
+	mylist.push_back(3);
+	mylist.push_back(5);
+	mylist.push_back(737);
+	//[...]
+	mylist.push_back(0);
+	
+	std::list<int>::iterator it1 = mylist.begin();
+	std::list<int>::iterator ite1 = mylist.end();
+
+	++it1;
+	--it1;
+	while (it1 != ite1)
+	{
+		std::cout << *it1 << std::endl;
+		++it1;
+	}
+
 	return 0;
 }

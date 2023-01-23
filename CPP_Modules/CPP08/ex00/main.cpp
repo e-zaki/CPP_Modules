@@ -11,8 +11,10 @@ int main(void)
 	std::vector<int> myVect;
 
 	int arr[] = {1, 100, 7, 10, 33, 8};
+
 	for (int i = 0; i < 6; i++)
 		myVect.push_back(arr[i]);
+
 	for (std::vector<int>::iterator it = myVect.begin(); it!=myVect.end(); ++it) {
 		std::cout << *it << " ";
 	}

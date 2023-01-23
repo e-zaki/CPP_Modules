@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stack>
 #include <deque>
+#include <list>
 
 template<typename T, typename Container=std::deque<T> >
 class MutantStack : public std::stack<T,Container>
