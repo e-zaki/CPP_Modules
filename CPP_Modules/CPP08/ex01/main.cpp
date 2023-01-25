@@ -10,9 +10,25 @@ int main()
 	sp.addNumber(11);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
-	int arr[] = {1, 14, 55, 2, 7};
-	sp.addMultipleNbrs(arr, 5);
-	// Span sp2 = sp;
+	
+	Span sp2(5);
+
+	int arr1[] = {1, 14, 55, 2, 7, 8, 37};
+	int arr2[] = {1, 14, 55, 2, 7};
+	
+	try {
+		sp2.addMultipleNbrs(arr1, 7);
+		std::cout << "Elements added to span\n";
+	} catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+	
+	try {
+		sp2.addMultipleNbrs(arr2, 5);
+		std::cout << "Elements added to span\n";
+	} catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	
 	Span sp3(10100);
 	int *bigArr = new int[10100];
@@ -20,5 +36,9 @@ int main()
 		bigArr[i] = i;
 	}
 	sp3.addMultipleNbrs(bigArr, 10100);
+	std::cout << "shortest Span: " << sp3.shortestSpan() << std::endl;
+	std::cout << "longest Span: " << sp3.longestSpan() << std::endl;
+
+	delete[] bigArr;
 	return 0;
 }

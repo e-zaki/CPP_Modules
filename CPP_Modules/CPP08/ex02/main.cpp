@@ -32,21 +32,23 @@ int main()
 
 	std::stack<int> s(mstack);
 
-	std::cout << "content of stack mstack:" << std::endl;
+	std::cout << "\ncontent of stack mstack:" << std::endl;
 	while (!mstack.empty()) {
 		std::cout << mstack.top() << std::endl;
 		mstack.pop();
 	}
+	std::cout << std::endl;
 	
 	std::cout << "content of stack s:" << std::endl;
 	while (!s.empty()) {
 		std::cout << s.top() << std::endl;
 		s.pop();
 	}
+	std::cout << std::endl;
 
 	// replace MutantStack with std::list
 
-	std::cout << "\nWorking with std::list instead of Mutant Stack..\n";
+	std::cout << "Working with std::list instead of Mutant Stack..\n";
 	std::list<int> mylist;
 
 	mylist.push_back(5);
